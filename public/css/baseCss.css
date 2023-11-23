@@ -1,0 +1,7 @@
+span.input-group-text {
+    min-width: 110px !important
+}
+
+button.tool {
+    margin: 0px 2px;
+}
