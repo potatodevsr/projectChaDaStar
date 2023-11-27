@@ -15,15 +15,15 @@ class Main extends BaseAdminController
         // return view('Admin/dashboard');
         $view = [];
         $script_path = '';
-        $this->template->set_js('myscript', script_tag($script_path));
+        $this->template->set_js(script_tag($script_path));
         return $this->template->load_view_admin('dashboard', $view);
     }
     public function form_index(): string
     {
         $view = [];
         $view['title'] = 'ข้อมูลสมาชิก';
-        $script_path[] = 'public/content_js/form.js';
-        $this->template->set_js('myscript', $script_path);
+        $script_path = 'public/content_js/form.js';
+        $this->template->set_js($script_path);
         return $this->template->load_view_admin('Form/index', $view);
     }
     public function getDatatable()

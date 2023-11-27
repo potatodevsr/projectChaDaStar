@@ -14,7 +14,6 @@ const action = (id = null, mode = null) => {
     } else {
         data = { mode: "insert", data: frmData };
     }
-// the tool is working, but action doesn't have aja
     $.ajax({
         type: "post",
         url: `${ADMIN_URL}user/action`,
@@ -33,7 +32,7 @@ const action = (id = null, mode = null) => {
                 } else {
                     Toast.fire({
                         icon: "success",
-                        title: "สำเร็จแล้ว",
+                        title: "Successfully",
                     });
                     window.location.href = `${ADMIN_URL}user`;
                 }
@@ -44,7 +43,20 @@ const action = (id = null, mode = null) => {
                 });
             }
         },
-    }); 
+    });
 };
 
-// now [name]_form.js handles all CRUD operations
+$("#frmData").validate({
+    rules: {
+        email: {
+            required: true,
+            customEmail: true,
+        },
+    },
+    messages: {
+        email: {
+            required: "กรุณาระบุ Email ",
+            customEmail: "กรุณาระบุ Email ให้ถูกต้อง",
+        },
+    },
+});

@@ -28,7 +28,6 @@ $routes->group('Admin', static function ($routes) {
         $routes->get('edit/(:num)', 'Admin\Address::edit_page/$1');
         $routes->post('update_data/(:num)', 'Admin\Address::update_data/$1');
         $routes->get('getDatatable', 'Admin\Address::getDatatable');
-        $routes->post('del/(:num)', 'Admin\Address::del/$1');
         $routes->post('action', 'Admin\Address::form_action');
     });
 
@@ -38,8 +37,16 @@ $routes->group('Admin', static function ($routes) {
         $routes->get('add', 'Admin\User::add_user');
         $routes->get('edit/(:num)', 'Admin\User::edit_page/$1');
         $routes->post('update_data/(:num)', 'Admin\User::update_data/$1');
-        $routes->post('del/(:num)', 'Admin\User::del/$1');
         $routes->get('getDatatable', 'Admin\User::getDatatable');
         $routes->post('action', 'Admin\User::form_action');
+    });
+
+    $routes->group('customer', static function ($routes) {
+        $routes->get('', 'Admin\Customer::index');
+        $routes->get('add', 'Admin\Customer::add_customer');
+        $routes->get('edit/(:num)', 'Admin\Customer::edit_page/$1');
+        $routes->post('update_data/(:num)', 'Admin\Customer::update_data/$1');
+        $routes->get('getDatatable', 'Admin\Customer::getDatatable');
+        $routes->post('action', 'Admin\Customer::form_action');
     });
 });

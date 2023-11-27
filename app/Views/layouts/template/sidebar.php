@@ -204,6 +204,12 @@
                                 <p>จัดการข้อมูล user</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?php echo ADMIN_URL . 'customer'; ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>จัดการข้อมูล Customer</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

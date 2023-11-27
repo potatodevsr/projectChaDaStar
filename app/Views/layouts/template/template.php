@@ -54,8 +54,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.jsdelivr.net/npm/busy-load@0.1.2/dist/app.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-        <!-- <script src="<?php echo PUBLIC_URL ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>        <!-- <script src="<?php echo PUBLIC_URL ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
         <script src="<?php echo PUBLIC_URL ?>/plugins/chart.js/Chart.min.js"></script>
         <script src="<?php echo PUBLIC_URL ?>/plugins/sparklines/sparkline.js"></script>
         <script src="<?php echo PUBLIC_URL ?>/plugins/jqvmap/jquery.vmap.min.js"></script>
@@ -77,6 +76,9 @@
                     <?= script_tag($_js) ?>
                 <?php endforeach; ?>
             <?php endforeach; ?>
+        <?php endif; ?>
+        <?php if (isset($single_script)) : ?>
+            <?= script_tag($single_script) ?>
         <?php endif; ?>
 </body>
 

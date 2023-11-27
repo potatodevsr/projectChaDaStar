@@ -30,3 +30,7 @@ function getFormattedBuddhistDateWithTime(date) {
     return `${day}/${month}/${thaiYear} ${hours}:${minutes}:${seconds}`;
 }
 
+$.validator.addMethod('customEmail', function (value, element) {
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return this.optional(element) || emailRegex.test(value);
+}, 'Please enter a valid email address.');

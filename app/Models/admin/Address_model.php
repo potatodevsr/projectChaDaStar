@@ -35,7 +35,7 @@ class Address_model extends Model
             ->addNumbering('no')
             ->add('tool', function ($row) {
                 $tool = '<a type="button" href="' . ADMIN_URL . 'address/edit/' . $row->id . '" class="btn tool btn-xs btn-icon btn-primary btn-outline on-default edit-row"><i class="fa fa-edit" aria-hidden="true"></i></a>';
-                $tool .= '<button onclick="action(' . $row->id . ',\'delete\')" type="button" class="btn  tool btn-xs btn-icon btn-danger btn-outline on-default remove-row" data-toggle="tooltip" data-original-title="Remove"><i class="fas fa-trash-alt"></i></button>';
+                $tool .= '<button onclick="action(' . $row->id . ',\'delete\')" type="button" class="btn tool btn-xs btn-icon btn-danger btn-outline on-default remove-row"><i class="fas fa-trash-alt"></i></button>';
                 return $tool;
             })
             ->toJson(true);
@@ -56,7 +56,7 @@ class Address_model extends Model
         $insert = $builder->insert($data);
         return json_encode($insert);
     }
-    
+
     public function update_data($id, $params)
     {
         if ($id > 0) {

@@ -21,23 +21,3 @@ data_table = $("#data_table").DataTable({
 $(document).on("click", "#add", function () {
     window.location.href = `${ADMIN_URL}address/add`;
 });
-
-const action = (id = null, mode = null) => {
-    let frmData = $("#frmData").serializeToJSON();
-    let data = null;
-    console.log('data ->', data);
-    if (id != null) {
-        if (mode === "edit") {
-            data = { mode: "edit", id };
-        }
-        if (mode === "update") {
-            data = { mode: "update", data: frmData, id };
-        }
-        if (mode === "delete") {
-            data = { mode: "delete", id };
-        }
-    } else {
-        data = { mode: "insert", data: frmData };
-        console.log('data insert ->', data);
-    }
-};

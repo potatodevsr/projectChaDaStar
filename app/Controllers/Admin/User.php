@@ -15,7 +15,7 @@ class User extends BaseAdminController
     {
         $view = [];
         $script_path = '';
-        $this->template->set_js('myscript', script_tag($script_path));
+        $this->template->set_js(script_tag($script_path));
         return $this->template->load_view_admin('dashboard', $view);
     }
     // index
@@ -29,7 +29,7 @@ class User extends BaseAdminController
             'action' => ['public/content_js/user/user_form.js'],
         ];
 
-        $this->template->set_js($scripts);
+        $this->template->set_js($scripts); // this is how you import 2 and more
 
         return $this->template->load_view_admin('User/index', $view);
     }
@@ -63,8 +63,7 @@ class User extends BaseAdminController
     public function add_user()
     {
         $view = [];
-        $script_path[] = 'public/content_js/user/user_form.js';
-        $this->template->set_js('myscript', $script_path);
+        $this->template->set_js('public/content_js/user/user_form.js');
         return $this->template->load_view_admin('User/form', $view);
     }
     // edit_page
@@ -72,8 +71,7 @@ class User extends BaseAdminController
     {
         $view = [];
         $view['data'] = $this->User_model->getById($id);
-        $script_path[] = 'public/content_js/user/user_form.js';
-        $this->template->set_js('myscript', $script_path);
+        $this->template->set_js('public/content_js/user/user_form.js');
         return $this->template->load_view_admin('User/form', $view);
     }
 }

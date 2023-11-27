@@ -14,8 +14,8 @@ class Gender extends BaseAdminController
     public function index(): string
     {
         $view = [];
-        $script_path[] = 'public/content_js/gender.js';
-        $this->template->set_js('myscript', $script_path);
+        $script_path = 'public/content_js/gender.js';
+        $this->template->set_js($script_path);
         return $this->template->load_view_admin('Gender/index', $view);
     }
     public function getDatatable()

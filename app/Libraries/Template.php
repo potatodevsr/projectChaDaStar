@@ -43,12 +43,12 @@ class Template
     public function set_js($data): void
     {
         if (is_array($data)) {
-            // New way of adding multiple scripts
+            //  multiple scripts
             $this->templateData['scripts'] = isset($this->templateData['scripts'])
                 ? array_merge_recursive($this->templateData['scripts'], $data)
                 : $data;
         } else {
-            // Old way of adding a single script
+            // single script
             $this->templateData['single_script'] = $data;
         }
     }
