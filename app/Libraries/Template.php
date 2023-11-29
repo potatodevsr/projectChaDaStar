@@ -73,13 +73,9 @@ class Template
         $this->set('contents', view('layouts/Admin/' . $view, $viewData));
         return view('layouts/template/template', $this->templateData, $options);
     }
-
-    // public function load_view_dashboard(string $view, $viewData, $options = []): string {
-    //     $this->set('header', view('layouts/template/header'));
-    //     $this->set('topbar', view('layouts/template/topbar'));
-    //     $this->set('footer', view('layouts/template/footer_dashboard'));
-    //     $this->set('contents', view('layouts/' . $view, $viewData));
-    //     // Return template + view
-    //     return view('layouts/template/template_dashboard', $this->templateData, $options);
-    // }
+    public function load_view_nosidebar(string $view, $viewData, $options = []): string
+    {
+        $this->set('contents', view('layouts/' . $view, $viewData));
+        return view('layouts/template/template_noSideBar', $this->templateData, $options);
+    }
 }

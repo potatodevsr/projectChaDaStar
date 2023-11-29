@@ -28,7 +28,7 @@ class User_model extends Model
     public function getdataTable()
     {
         $builder = $this->db->table($this->table);
-        $builder->select("id, first_name, last_name, email, update_date, status");
+        $builder->select("id, first_name, last_name, email, password, update_date, status");
         $builder->orderBy('id', 'desc');
 
         return DataTable::of($builder)
@@ -55,6 +55,7 @@ class User_model extends Model
             "first_name" => $params['first_name'],
             "last_name" => $params['last_name'],
             "email" => $params['email'],
+            "password" => $params['password'],
             "status" => $params['status'],
             "create_date" => date("Y-m-d H:i:s"),
             "update_date" => date("Y-m-d H:i:s"),
@@ -73,6 +74,7 @@ class User_model extends Model
                     "first_name" => $params['first_name'],
                     "last_name" => $params['last_name'],
                     "email" => $params['email'],
+                    "password" => $params['password'],
                     "status" => $params['status'],
                     "update_date" => date("Y-m-d H:i:s"),
                 ];

@@ -6,6 +6,10 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->group('login', static function ($routes) {
+    $routes->get('', 'Admin\Login::index');
+    $routes->post('getUserLogin', 'Admin\Login::getUserLogin');
+});
 
 $routes->group('Admin', static function ($routes) {
     $routes->get('', 'Admin\Main::dashboard');
@@ -30,7 +34,6 @@ $routes->group('Admin', static function ($routes) {
         $routes->get('getDatatable', 'Admin\Address::getDatatable');
         $routes->post('action', 'Admin\Address::form_action');
     });
-
 
     $routes->group('user', static function ($routes) {
         $routes->get('', 'Admin\User::index');

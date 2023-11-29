@@ -1,3 +1,7 @@
+$(document).on("click", "#back", function () {
+    window.location.href = `${ADMIN_URL}user`;
+});
+
 const action = (id = null, mode = null) => {
     let frmData = $("#frmData").serializeToJSON();
     let data = null;

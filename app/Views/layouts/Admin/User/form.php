@@ -25,6 +25,10 @@
                                 <input type="text" class="form-control required" id="emailVal" name="email" placeholder="Enter your email" value="<?php echo (isset($data) & !empty($data) ? $data->email : '') ?>">
                             </div>
                             <div class="input-group mb-3">
+                                <span class="input-group-text" id="password">Password&nbsp;<span class="text-red">*</span></span>
+                                <input type="text" class="form-control required" id="passwordlVal" name="password" placeholder="Enter your password" value="<?php echo (isset($data) & !empty($data) ? $data->password : '') ?>">
+                            </div>
+                            <div class="input-group mb-3">
                                 <span class="input-group-text" id="status" name="status">Status&nbsp;<span class="text-red">*</span></span>
                                 <div class="form-control">
                                     <input type="radio" checked=true name="status" id="status0" value="0" <?php echo (isset($data) && $data->status == 0) ? 'checked' : ''; ?>>

@@ -19,6 +19,7 @@ data_table = $("#data_table").DataTable({
         { data: "first_name" },
         { data: "last_name" },
         { data: "email" },
+        { data: "password" },
         { data: "status" },
         {
             data: "update_date",
@@ -35,5 +36,3 @@ data_table = $("#data_table").DataTable({
 $(document).on("click", "#add", function () {
     window.location.href = `${ADMIN_URL}user/add`;
 });
-
-// and this only GET

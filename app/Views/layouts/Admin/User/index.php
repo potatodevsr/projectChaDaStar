@@ -17,6 +17,7 @@
                                 <th class="text-center">First Name</th>
                                 <th class="text-center">Last Name</th>
                                 <th class="text-center">E-mail</th>
+                                <th class="text-center">Password</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Update date</th>
                                 <th class="text-center">Tools</th>

@@ -5,3 +5,9 @@ span.input-group-text {
 button.tool {
     margin: 0px 2px;
 }
+label.error{
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+    font-size: 0.8rem;
+}
