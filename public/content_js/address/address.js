@@ -11,9 +11,17 @@ data_table = $("#data_table").DataTable({
         url: `${ADMIN_URL}address/getDatatable`,
         dataType: "json",
     },
-    columns: [{ data: "no" }, { data: "street" }, { data: "city" }, { data: "state" }, { data: "zipcode" }, { data: "county" }, { data: "tool" }],
+
+    columns: [
+        { data: "no" },
+        { data: "street" },
+        { data: "state" },
+        { data: "zipcode" },
+        { data: "name_county" },
+        { data: "tool" }
+    ],
     columnDefs: [
-        { className: "text-center", targets: [0, 1, 2, 3, 4, 5, 6] },
+        { className: "text-center", targets: [0, 1, 2, 3, 4, 5] },
         { className: "text-left", targets: [1, 2] },
     ],
 });

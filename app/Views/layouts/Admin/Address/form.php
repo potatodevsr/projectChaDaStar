@@ -17,10 +17,6 @@
                                 <input type="text" class="form-control" id="streetVal" name="street" aria-describedby="street" value="<?php echo (isset($data) & !empty($data) ? $data->street : '') ?>">
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="city">City</span>
-                                <input type="text" class="form-control" id="cityVal" name="city" aria-describedby="city" value="<?php echo (isset($data) & !empty($data) ? $data->city : '') ?>">
-                            </div>
-                            <div class="input-group mb-3">
                                 <span class="input-group-text" id="state">State</span>
                                 <input type="text" class="form-control" id="stateVal" name="state" aria-describedby="state" value="<?php echo (isset($data) & !empty($data) ? $data->state : '') ?>">
                             </div>
@@ -29,8 +25,15 @@
                                 <input type="text" class="form-control" id="zipcodeVal" name="zipcode" aria-describedby="zipcode" value="<?php echo (isset($data) & !empty($data) ? $data->zipcode : '') ?>">
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="county">County</span>
-                                <input type="text" class="form-control" id="countyVal" name="county" aria-describedby="county" value="<?php echo (isset($data) & !empty($data) ? $data->county : '') ?>">
+                                <span class="input-group-text">Province</span>
+                                <select name="province_id" id="province_id" class="form-control">
+                                    <option value="" selected disabled>Choose your province</option>
+                                    <?php foreach ($provinces as $province) : ?>
+                                        <option value="<?= $province->id ?>" <?= (isset($data) && !empty($data) && $data->province_id == $province->id) ? 'selected' : '' ?>>
+                                            <?= $province->name_county ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                     </form>

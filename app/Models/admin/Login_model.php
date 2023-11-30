@@ -24,6 +24,6 @@ class Login_model extends Model
         $builder->where('email', $email);
         $builder->where('password', $password);
         $builder->where('status', 0);
-        return $builder->get()->getRow();
+        return $builder->get()->getFirstRow();
     }
 }

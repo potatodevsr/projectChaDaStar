@@ -35,6 +35,7 @@ class Address extends BaseAdminController
     public function add_address()
     {
         $view = [];
+        $view['provinces'] = $this->Address_model->getProvinces();
         $this->template->set_js('public/content_js/address/address_form.js');
         return $this->template->load_view_admin('Address/form', $view);
     }
@@ -42,6 +43,7 @@ class Address extends BaseAdminController
     public function edit_page($id)
     {
         $view = [];
+        $view['provinces'] = $this->Address_model->getProvinces();
         $view['data'] = $this->Address_model->getById($id);
 
         $this->template->set_js('public/content_js/address/address_form.js');
@@ -54,7 +56,9 @@ class Address extends BaseAdminController
     }
 
     public function form_action()
+
     {
+        $params['data']['province_id'] = $this->request->getPost('province_id');
         $params = $this->request->getPost();
         if ($params['mode'] == 'insert') {
             $insert = $this->Address_model->insert_data($params['data']);

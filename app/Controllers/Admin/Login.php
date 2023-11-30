@@ -9,6 +9,7 @@ class Login extends BaseAdminController
     public function __construct()
     {
         $this->Login_model = new Login_model();
+        $this->session = \Config\Services::session();
     }
 
     public function dashboard(): string
@@ -30,6 +31,7 @@ class Login extends BaseAdminController
         return $this->template->load_view_nosidebar('login', $view);
     }
 
+
     public function getUserLogin()
     {
         $email = $this->request->getPost('email');
@@ -37,9 +39,12 @@ class Login extends BaseAdminController
         $user = $this->Login_model->getUserLogin($email, $password);
 
         if ($user) {
+            session();
+            $this->session->set('user_data', $user);
+
             return $this->response->setJSON($user);
         } else {
-            return $this->response->setJSON(['error' => 'Invalid email, password or status is not open']);
+            return $this->response->setJSON(['error' => 'Invalid email, password, or status is not open']);
         }
     }
 }

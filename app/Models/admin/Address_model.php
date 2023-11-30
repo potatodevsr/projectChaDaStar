@@ -17,6 +17,12 @@ class Address_model extends Model
         $this->db = \Config\Database::connect();
     }
 
+    public function getProvinces()
+    {
+
+        return $this->db->table('ref_province')->get()->getResult();
+    }
+
     function getById($id)
     {
         $builder = $this->db->table($this->table);
@@ -29,7 +35,8 @@ class Address_model extends Model
     public function  getdataTable()
     {
         $builder = $this->db->table($this->table);
-        $builder->select("id, street, city, state, zipcode, county,");
+        $builder->select("ref_address.id, street, state, zipcode, province_id, ref_province.name_county");
+        $builder->join('ref_province', 'ref_province.id = ref_address.province_id', 'left');
 
         return DataTable::of($builder)
             ->addNumbering('no')
@@ -45,10 +52,9 @@ class Address_model extends Model
     {
         $data = [
             "street" => $params['street'],
-            "city" => $params['city'],
             "state" => $params['state'],
             "zipcode" => $params['zipcode'],
-            "county" => $params['county'],
+            "province_id" => $params['province_id'],
             "create_date" => date("Y-m-d H:i:s"),
             "update_date" => date("Y-m-d H:i:s"),
         ];
@@ -64,10 +70,9 @@ class Address_model extends Model
             if (!empty($checkData)) {
                 $data = [
                     "street" => $params['street'],
-                    "city" => $params['city'],
                     "state" => $params['state'],
                     "zipcode" => $params['zipcode'],
-                    "county" => $params['county'],
+                    "province_id" => $params['province_id'],
                     "update_date" => date("Y-m-d H:i:s"),
                 ];
                 $builder = $this->db->table($this->table);

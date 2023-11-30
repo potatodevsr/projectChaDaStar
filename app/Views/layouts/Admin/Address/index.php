@@ -15,10 +15,9 @@
                             <tr>
                                 <th class="text-center">Id</th>
                                 <th class="text-center">Street</th>
-                                <th class="text-center">City</th>
                                 <th class="text-center">State</th>
                                 <th class="text-center">Zipcode</th>
-                                <th class="text-center">County</th>
+                                <th class="text-center">Province</th>
                                 <th class="text-center">Tools</th>
                             </tr>
                         </thead>
